@@ -1,0 +1,17 @@
+RewriteEngine On
+# Если это не реальный файл на диске
+RewriteCond %{REQUEST_FILENAME} !-f
+# И не реальная папка
+RewriteCond %{REQUEST_FILENAME} !-d
+# Перенаправить всё на index.php
+RewriteRule ^ index.php [L,QSA]
+
+# 1. Принудительно передаем заголовок авторизации в PHP
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+
+# 2. Разрешаем передачу данных авторизации (работает в Apache 2.4.13+)
+CGIPassAuth On
+
+# 3. Если первые два не сработали, прокидываем через переменную окружения
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

@@ -1,0 +1,23 @@
+{% extends "templates/common.twig" %}
+
+{% block content %}
+<div class="container-md">
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; padding-top: 20px;">
+{% for car in cars %}
+    <div class="card" style="width: 18rem; position: relative; padding-top: 25px;">
+    <div style="position: absolute; top: 0; right: 0;">
+        <form action="/cars/{{car.short_name}}/delete" method="POST">
+                <button class="btn-close" aria-label="Close" type="submit"></button>
+        </form>
+    </div>
+                <img style="height: 150px; object-fit: cover" src="{{car.image}}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.title}}</h5>
+                    <p class="card-text" style="max-height: 150px; overflow: hidden; text-overflow: ellipsis; ">{{car.description}}</p>
+                    <a href="/cars/{{car.short_name}}" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+{% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% macro link_button(link, value, active) %}
+    <a href="/{{link}}" class="btn {{active ? "btn-primary" : ""}}">{{value}}</a>
+{% endmacro %}

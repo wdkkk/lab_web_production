@@ -1,0 +1,7 @@
+RewriteEngine On
+# Если это не реальный файл на диске
+RewriteCond %{REQUEST_FILENAME} !-f
+# И не реальная папка
+RewriteCond %{REQUEST_FILENAME} !-d
+# Перенаправить всё на index.php
+RewriteRule ^ index.php [L,QSA]

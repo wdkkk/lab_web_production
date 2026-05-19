@@ -1,0 +1,28 @@
+{% extends "templates/common.twig" %}
+
+{% block content %}
+<div class="container-md mt-5">
+  <div class="card p-4 shadow-sm">
+    <h2 class="mb-4">Добавление типа автомобиля</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Название</label>
+          <input type="text" class="form-control" name="translation" id="name">
+        </div>
+        <div class="col-md-6">
+          <label for="short_name" class="form-label">Тег (на английском языке)</label>
+          <input type="text" class="form-control" name="age" id="short_name">
+        </div>
+      </div>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-primary px-4">Добавить</button>
+      </div>
+
+      <div style="text-align: center">{{message}}</div>
+    </form>
+  </div>
+</div>
+{% endblock %}

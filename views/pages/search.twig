@@ -1,0 +1,67 @@
+{% extends "templates/common.twig" %}
+
+{% block content %}
+<div class="container-md">
+    <h1 style="margin: 20px 0;">Поиск</h1>
+    <form action="">
+    <div style="
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    ">
+        <div style="
+            width: calc(33.33% - 8px);
+        ">
+            <label class="form-label">Тип</label>
+            <select name="age" class="form-select" aria-label="Default select example">
+                    <option value="" {{"" == search_params.age ? "selected" : ""}}>Все</option>
+                {% for age in ages %}
+                    <option value="{{age.age}}" {{age.age == search_params.age ? "selected" : ""}}>{{age.translation}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div style="
+            width: calc(33.33% - 8px);
+        ">
+            <label class="form-label">Название</label>
+            <input name="title" class="form-control" value={{search_params.title}}>
+        </div>
+
+        <div style="
+            width: calc(33.33% - 8px);
+        ">
+            <label class="form-label">Описание</label>
+            <input name="description" class="form-control" value={{search_params.description}}>
+        </div>
+    </div>
+
+    <button style="
+        width: 100%;
+        margin-top: 10px;
+    "
+    class="btn btn-primary"
+    type="submit"
+    >
+        Найти
+    </button>
+    </form>
+
+<div style="padding-top: 35px">
+    {% for car in objects %}
+    <a style="
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid blue;
+        width: 100%;
+        display: block;
+        text-decoration: none;
+    " 
+    href="/cars/{{car.short_name}}"
+    >
+        {{car.title}}
+    </a>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

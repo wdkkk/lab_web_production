@@ -1,0 +1,20 @@
+{% import "link_button.twig" as macros %}
+
+{% extends "templates/car_layout.twig" %}
+
+{% block car_content %}
+<div style="font-size: 40px">
+     {{ car.title }}
+</div>
+
+<div style="
+            padding-top: 10px;
+        ">
+                    {{macros.link_button("cars/" ~ car.short_name, "Image", false)}}
+                    {{macros.link_button("cars/" ~ car.short_name ~ "?desc", "Description", true)}}
+                    {{macros.link_button("cars/" ~ car.short_name ~ "/edit", "Edit", false)}}
+            <p class="card-text" style="font-size: 20px;">
+                {{car.description}}
+            </p>
+</div>
+{% endblock %}
