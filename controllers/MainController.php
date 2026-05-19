@@ -11,9 +11,6 @@ class MainController extends TwigBaseController
         $query = $this->pdo->query("SELECT * FROM cars_table");
         $context['cars'] = $query->fetchAll();
 
-        $query = $this->pdo->query("SELECT * FROM ages");
-        $context['ages'] = $query->fetchAll();
-
         return $context;
     }
 }
