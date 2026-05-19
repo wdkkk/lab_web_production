@@ -17,7 +17,7 @@ require_once "../controllers/LoginController.php";
 require_once "../middlewares/LoginRequiredMiddleware.php";
 require_once "../middlewares/HistoryMiddleware.php";
 
-$loader = new \Twig\Loader\FilesystemLoader(['../views', './macros']);
+$loader = new \Twig\Loader\FilesystemLoader(['../views', '../views/macros']);
 
 $twig = new \Twig\Environment($loader, [
     "debug" => true

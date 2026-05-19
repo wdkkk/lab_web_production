@@ -83,11 +83,11 @@
     display: flex;
     gap: 10px
 ">
-<div style="width: 80%; overflow-y: scroll;">
+<div style="width: 80%;">
 {% block content %}
 {% endblock %}
 </div>
-<div style="max-height: 100vh; width: calc(20% - 15px); padding: 20px; border-left: 1px solid grey; overflow-y: scroll;">
+<div style="max-height: 100vh; width: calc(20% - 15px); padding: 20px; border-left: 1px solid grey;">
 {% for page in pages_history %}
     <div style="background: #fafafa; padding: 5px; margin-bottom: 10px">
         <a href="{{page}}">
